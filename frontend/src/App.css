@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #000000;
+}
+
+div {
+  background-color: black;
+}
+
+/*------------- LOGO ----------- */
+.logo-container {
+  display: flex;
+  background-color: #000000;
+  flex-direction: column;   
+  align-items: center;      
+  justify-content: center;  
+  /* height: 100vh;             */
+  text-align: center;       
+}
+
+.logo {
+  max-width: 60%;
+  height: auto; 
+  margin: 0; 
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* ----- TYPSNITT ------------ */
+h1 {
+  text-align: left;
+  font-size: 2.5rem;
+  color: #333;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 10px;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-left: 10px;
+}
+
+.movie-description, .movie-genre, .movie-director, .movie-duration {
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 1.8px;
+  margin: 8px 0;
+  color: #cecece;
+  padding-left: 10px;
+}
+
+/* ---------- MOVIECARD --------- */
+.movie-card-container {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 20px; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 20px; 
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: black;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+  width: 305px;
+  box-shadow:
+    0px 10px 15px rgba(0, 0, 0, 0.1),
+    0px 20px 30px rgba(0, 0, 0, 0.07),
+    0px 30px 40px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* ---- SHOWCARD ----- */
+.show-card-container {
+  display: flex;
+  flex-direction: row;  
+  align-items: center;      
+  justify-content: center;  
+  text-align: center;
+  gap: 30px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.show-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  height: 250px;
+  padding: 20px;
+  margin: 10px;
+  width: 305px;
+  box-shadow:
+    0px 10px 15px rgba(0, 0, 0, 0.1),
+    0px 20px 30px rgba(0, 0, 0, 0.07),
+    0px 30px 40px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Hover-effekt */
+.show-card:hover, .movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0px 15px 20px rgba(0, 0, 0, 0.1),
+    0px 25px 35px rgba(0, 0, 0, 0.08),
+    0px 35px 45px rgba(0, 0, 0, 0.07);
+}
+
+/* Bokningsformulär styling */
+.booking-form {
+  background-color: #f1f1f1;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px;
+  width: 300px;
+  box-shadow:
+    0px 10px 15px rgba(0, 0, 0, 0.1),
+    0px 20px 30px rgba(0, 0, 0, 0.07),
+    0px 30px 40px rgba(0, 0, 0, 0.05);
+}
+
+/* -------- KNAPPAR ---------- */
+button {
+  margin-top: 10px;
+  margin-left: 35px;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  color: #333;
+  letter-spacing: 1px;
+  font-size: 11px !important;
+  height: 45px;
+  width: 220px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-to-movies-btn {
+ margin: 0px;
+}
+
+
+button:hover {
+  background-color: #e3e3e3;
+}
+
+/*---- RULLNING ------ */
+@media (max-width: 768px) {
+  .movie-card-container, .show-card-container {
+    flex-direction: column;
+    align-items: center; 
+  }
+
+  .movie-card, .show-card {
+    width: 80%; 
+    margin-bottom: -10px;
+  }
+
+  h1 {
+    font-size: 2rem; 
+  }
+}

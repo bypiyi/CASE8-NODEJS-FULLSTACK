@@ -1,0 +1,100 @@
+
+.booking-info, .booking-form-container {
+    width: 200px;
+    margin: 10px;
+    background-color: #ffffff;
+    padding: 15px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.seat-selection {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 kolumner som standard */
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 5px;
+    width: 2
+}
+
+.seat {
+    padding: 8px 10px; /* Mindre storlek på säten */
+    width: 60px;
+    background-color: #f1c40f;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.seat.selected {
+    background-color: #76c7c0;
+}
+
+.seat.booked {
+    background-color: #fc0e0e;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+form {
+    width: 300px;
+    padding: 15px;
+}
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%; /* Full bredd för inputs */
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+/* Mobilanpassning */
+@media (max-width: 768px) {
+    .booking-container {
+        flex-direction: column; /* Kolumnlayout på mindre skärmar */
+        padding: 10px;
+    }
+
+    .booking-info, .booking-form-container {
+        width: 100%; /* Full bredd för varje sektion på mobil */
+        margin: 10px 0;
+    }
+
+    .seat-selection {
+        grid-template-columns: repeat(3, 1fr); /* Färre kolumner på små skärmar */
+        padding: 15px;
+    }
+
+    input {
+        width: 100%; /* Full bredd på mobil */
+    }
+}
