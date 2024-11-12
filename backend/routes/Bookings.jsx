@@ -1,0 +1,1 @@
+// Hanterar alla bokningsrelaterade routes.

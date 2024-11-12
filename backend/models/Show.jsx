@@ -1,0 +1,1 @@
+// MongoDB-schema för show-data.

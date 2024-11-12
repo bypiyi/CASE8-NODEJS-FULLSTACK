@@ -1,0 +1,1 @@
+// Hanterar alla show-relaterade routes.
