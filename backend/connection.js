@@ -1,6 +1,6 @@
 
 import { MongoClient, ServerApiVersion } from 'mongodb';
-const uri = "mongodb+srv://piyitsirigotis:TsirigotisBella1!@cinema-database-backend.043gn.mongodb.net/?retryWrites=true&w=majority&appName=cinema-database-backend";
+const uri = "mongodb+srv://piyitsirigotis:coco2233@cinema-database-backend.043gn.mongodb.net/?retryWrites=true&w=majority&appName=cinema-database-backend";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
