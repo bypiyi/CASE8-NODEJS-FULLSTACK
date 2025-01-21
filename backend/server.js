@@ -2,19 +2,49 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import Show from './models/Shows.js';
-import Movie from './models/Movies.js';
-import Booking from './models/Bookings.js';
+import Show from './models/Show.js';
+import Movie from './models/Movie.js';
+import Booking from './models/Booking.js';
 
+// dotenv.config();
+
+// // Anslutning till MongoDB med miljövariabler från .env
+// const MONGO_URI = process.env.MONGO_URI;
+
+
+
+// mongoose
+//     .connect(MONGO_URI)
+//     .then(() => console.log('Database connection successful'))
+//     .catch((err) => console.error('Database connection failed:', err));
+
+
+
+//-----------Connect to mongo DB---------
+
+// Läs in alla variabler från .env
 dotenv.config();
 
-// Anslutning till MongoDB med miljövariabler från .env
-const MONGO_URI = `mongodb+srv://piyitsirigotis:<db_password>@cinema-database-backend.043gn.mongodb.net/?retryWrites=true&w=majority&appName=cinema-database-backend`;
+const server = express();
 
-mongoose
-    .connect(MONGO_URI)
-    .then(() => console.log('Database connection successful'))
-    .catch((err) => console.error('Database connection failed:', err));
+server.use(express.json());
+
+const { MONGODB_USER, MONGODB_PASSWORD, MONGODB_URL, MONGODB_DATABASE} = process.env;
+// Kontrollera att .env filen har skapats korrekt
+if (!MONGODB_USER || !MONGODB_PASSWORD || !MONGODB_URL || !MONGODB_DATABASE) {
+    console.log("Missing environment variables.");
+    process.exit(1);
+}
+
+// Connect to mongo DB
+const uri = `mongodb+srv://${MONGODB_USER}:${MONGODB_PASSWORD}@${MONGODB_URL}/${MONGODB_DATABASE}?retryWrites=true&w=majority&appName=${MONGODB_DATABASE}`;
+mongoose.connect(uri)
+    .then(() => console.log("Connected to database"))
+    .catch(err => console.error("Could not connect to database", err))
+
+
+
+
 
 // Skapar och konfigurerar Express-servern
 const app = express();
@@ -118,3 +148,19 @@ app.post('/api/bookings', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+
+// Testa att hämta data från en collection (ex. Movie)
+app.get('/test-database', async (req, res) => {
+    try {
+      const movies = await Movie.find(); // Din Movie-model här
+      res.status(200).json({ message: 'Database is connected', movies });
+    } catch (error) {
+      res.status(500).json({ message: 'Database connection failed', error });
+    }
+  });
+  
+
+
+console.log(process.env.MONGODB_USER);  // Skall skriva ut "piyitsirigotis"
+console.log(process.env.MONGODB_PASSWORD);  // Skall skriva ut "hejmongodb"

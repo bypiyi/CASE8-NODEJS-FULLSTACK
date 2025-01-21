@@ -1,5 +1,3 @@
-// MongoDB-schema för bokningsdata.
-
 import mongoose from 'mongoose';
 
 

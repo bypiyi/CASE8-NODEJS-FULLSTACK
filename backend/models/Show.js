@@ -1,7 +1,5 @@
-// MongoDB-schema för show-data.
-
 import mongoose from 'mongoose';
-import Movie from './Movies.js';
+import Movie from './Movie.js';
 
 // med hjälp av ChatGPT, förklarar kod själv
 // Schema för säten som sedan läggs in i en array i showSchema
@@ -14,7 +12,7 @@ const showSchema = new mongoose.Schema({
   movieId: {
     type: mongoose.Schema.Types.ObjectId,
     // referens till movieSchema för att koppla en föreställning till val
-    ref: { Movie },
+    ref: 'Movie',
     required: true
   },
   dateTime: {

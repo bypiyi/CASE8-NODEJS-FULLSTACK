@@ -1,5 +1,3 @@
-// MongoDB-schema för film-data.
-
 import mongoose from 'mongoose';
 
 const movieSchema = new mongoose.Schema({
@@ -10,5 +8,5 @@ const movieSchema = new mongoose.Schema({
   posterUrl: { type: String, required: true }
 });
 
-const Movie = mongoose.model('movies', movieSchema);
+const Movie = mongoose.model('Movie', movieSchema);
 export default Movie;
